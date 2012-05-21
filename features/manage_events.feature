@@ -4,17 +4,17 @@ Feature: Manage events
   wants to create new events
   
   Scenario: Register new event
-    Given I am logged in 
+    Given I am logged in as organizer
     And I am on the new event page
-    When I fill in "Title" with "title 1"
-    And I fill in "Start at" with "start_at 1"
-    And I fill in "End at" with "end_at 1"
+    When I fill in "Title" with "Rails event"
+    And I fill in "Start at" with "2012-5-4"
+    And I fill in "End at" with "2012-5-5"
     And I fill in "Description" with "description 1"
     And I uncheck "Published"
-    And I press "Create"
-    Then I should see "title 1"
-    And I should see "start_at 1"
-    And I should see "end_at 1"
+    And I press "Create Event"
+    Then I should see "Rails event"
+    And I should see "2012-5-4"
+    And I should see "2012-5-5"
     And I should see "description 1"
     And I should see "false"
 

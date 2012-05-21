@@ -8,16 +8,16 @@ Given /^I am on the new event page$/ do
   visit new_event_path
 end
 
-When /^I fill in "(.*?)" with "(.*?)"$/ do |value|
-  fill_in :name, :with => value
+When /^I fill in "(.*?)" with "(.*?)"$/ do |name, value|
+  fill_in name, :with => value
 end
 
-When /^I fill in "start date" with "(.*?)"$/ do |value|
-  enter_date(:event_start_date, value)
+When /^I fill in "Start at" with "(.*?)-(.*?)-(.*?)"$/ do |year, month, day|
+  enter_date(:event_start_at, year, month, day)
 end
 
-When /^I fill in "end date" with "(.*?)"$/ do |value|
-  enter_date(:event_end_date, value)
+When /^I fill in "End at" with "(.*?)-(.*?)-(.*?)"$/ do |year, month, day|
+  enter_date(:event_end_at, year, month, day)
 end
 
 When /^I press "(.*?)"$/ do |button_text|
@@ -33,8 +33,7 @@ Then /^I should see "(.*?)"$/ do |value|
 end
 
 private
-def enter_date(id, date)
-	year, month, day = date.split('-')
+def enter_date(id, year, month, day)
 	select year, :with => "#{id}_1i"
 	select month, :with => "#{id}_2i"
 	select day, :with => "#{id}_3i"
