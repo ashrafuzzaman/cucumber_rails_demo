@@ -7,21 +7,21 @@
     <th>End at</th>
     <th>Description</th>
     <th>Published</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="action"></th>
+    <th class="action"></th>
+    <th class="action"></th>
   </tr>
 
 <% @events.each do |event| %>
   <tr>
     <td><%= event.title %></td>
-    <td><%= event.start_at %></td>
-    <td><%= event.end_at %></td>
+    <td><%= event.start_at.strftime("%Y-%m-%d") %></td>
+    <td><%= event.end_at.strftime("%Y-%m-%d") %></td>
     <td><%= event.description %></td>
     <td><%= event.published %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+    <td class="action"><%= link_to 'Show', event %></td>
+    <td class="action"><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td class="action"><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
