@@ -3,18 +3,20 @@ Feature: Manage events
   User
   wants to create new events
   
-  Scenario: Register new event
+  Background:
     Given I am logged in as organizer
-    And I am on the new event page
+  
+  Scenario: Register new event
+    Given I am on the new event page
     When I fill in "Title" with "Rails event"
     And I fill in "Start at" with "2012-5-4"
     And I fill in "End at" with "2012-5-5"
     And I fill in "Description" with "description 1"
-    And I uncheck "Published"
+    And I check "Published"
     And I press "Create Event"
     Then I should see "Rails event"
-    And I should see "2012-5-4"
-    And I should see "2012-5-5"
+    And I should see "2012-05-04"
+    And I should see "2012-05-05"
     And I should see "description 1"
     And I should see "false"
 

@@ -28,6 +28,7 @@ group :test do
   gem 'capybara'
   gem 'rspec-expectations'
   gem 'fabrication' #for test fixture creation
+  gem 'capybara-webkit'
 end
 
 gem 'jquery-rails'

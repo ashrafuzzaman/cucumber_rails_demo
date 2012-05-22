@@ -8,16 +8,20 @@ Given /^I am on the new event page$/ do
   visit new_event_path
 end
 
-When /^I fill in "(.*?)" with "(.*?)"$/ do |name, value|
-  fill_in name, :with => value
-end
-
 When /^I fill in "Start at" with "(.*?)-(.*?)-(.*?)"$/ do |year, month, day|
   enter_date(:event_start_at, year, month, day)
 end
 
 When /^I fill in "End at" with "(.*?)-(.*?)-(.*?)"$/ do |year, month, day|
   enter_date(:event_end_at, year, month, day)
+end
+
+When /^I fill in "(.*?)" with "(.*?)"$/ do |name, value|
+  fill_in name, :with => value
+end
+
+When /^I check "(.*?)"$/ do |element|
+  check element
 end
 
 When /^I press "(.*?)"$/ do |button_text|
